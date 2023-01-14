@@ -1,25 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.c                                            :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/14 13:51:31 by cgross           ###   ########.fr       */
+/*   Created: 2023/01/14 15:20:53 by cgross            #+#    #+#             */
+/*   Updated: 2023/01/14 16:45:18 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_create(int *numbers, int size)
+int	check_args(int argc, char **argv)
 {
-	t_stack	*newstack;
+	int	i;
+	int	j;
 
-	newstack = (t_stack *)malloc(sizeof(t_stack));
-	if (!newstack)
-		return (0);
-	stack_setsize(newstack, size);
-	stack_setnumbers(newstack, numbers);
-	return (newstack);
+	i = 0;	
+	if (argc <= 1)
+		return (1);
+	else if (argc == 2)
+	{
+		while (argv[1][i])
+		{
+			if (!(ft_isdigit(atoi(&argv[1][i])) || argv[1][i] == ' '))
+				return (1);
+			else
+				i++;
+		}
+	}
+	else
+	{
+		j = 1;
+		while (argv[j])
+		{
+			printf("argv[j]: %s\n", argv[j]);
+			if (ft_isdigit(atoi(argv[j])))
+				return (1);
+			else
+				j++;
+		}
+	}
+	return (0);
 }

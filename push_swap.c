@@ -6,47 +6,59 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:25:42 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/12 14:50:24 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/14 16:41:04 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *init_stack_a(int argc, char **argv, t_stack *stack)
+t_stack *stack_init(int argc, char **argv)
 {
 	int		i = 0;
 	int		j = 1;
+	int		*nbs;
+	t_stack	*stack;
 
-	stack->size = argc - 1;	
-	stack->numbers = malloc(sizeof(int) * argc);
+
+	nbs = malloc(sizeof(int) * argc - 1);
+	if (!nbs)
+		return (0);
 	if (argc < 1)
 		return (0);
 	while (argv[j])
 	{
-		stack->numbers[i] = atoi(argv[j]);
+		nbs[i] = atoi(argv[j]);
 		j++;
 		i++;
 	}
-	return (stack->numbers);
+	stack = stack_create(nbs, argc - 1);
+	return (stack);
 }
+
 
 
 int	main(int argc, char **argv)
 {
-	t_stack stack;
+	t_stack *a;
+	t_stack *b;
 
 	if (argc < 1)
 		return (0);
-	else if (argc == 2)
-		return (atoi(argv[1])); //need handle single string aswell
-	else if (argc >= 3)
+	if (check_args(argc, argv) == 1)
 	{
-		init_stack_a(argc, argv, &stack);
+		printf("arg error");
+		return (1);
+	}
+	a = stack_init(argc, argv);
+	b = stack_create(0, 0);
+	//else if (argc >= 3)
+	//{
+	//	a = stack_init(argc, argv, &a);
 		//swap_a(&stack);
 		//rotate_a(&stack);
 		//revrotate_a(&stack);
-	}
-	print_a(argc, &stack);
+		//}
+	print_a(argc, a);
 	return (0);
 }
 		
