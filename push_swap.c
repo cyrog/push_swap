@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:25:42 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/14 16:41:04 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/18 17:27:27 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,20 @@ int	main(int argc, char **argv)
 
 	if (argc < 1)
 		return (0);
-	if (check_args(argc, argv) == 1)
+	/*if (check_args(argc, argv) == 1)
 	{
 		printf("arg error");
 		return (1);
 	}
-	a = stack_init(argc, argv);
-	b = stack_create(0, 0);
-	//else if (argc >= 3)
-	//{
-	//	a = stack_init(argc, argv, &a);
-		//swap_a(&stack);
+	*/
+	else
+	{
+		a = stack_init(argc, argv);
+		b = stack_create(0, 0);
+		//swap_a(a);
 		//rotate_a(&stack);
 		//revrotate_a(&stack);
-		//}
+	}
 	print_a(argc, a);
 	return (0);
 }
