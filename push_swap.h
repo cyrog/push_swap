@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/16 11:58:57 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:47:20 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct	s_stack
 {
-	int	*numbers;
+	int	*nb;
 	int	size;
 }				t_stack;
 
@@ -30,12 +30,16 @@ t_stack	*stack_create(int *numbers, int size);
 void	stack_setsize(t_stack *stack, int size);
 void	stack_setnumbers(t_stack *stack, int *numbers);
 
+t_stack	*sort2(int argc, char **argv);
+t_stack	*sort3(int argc, char **argv);
+
+
 int		*swap_a(t_stack *stack);
 int		*rotate_a(t_stack *stack);
 int		*revrotate_a(t_stack *stack);
 void	print_a(int argc, t_stack *stack);
 
-int		check_args(int argc, char **argv);
+t_stack	*check_args(int argc, char **argv);
 
 
 #endif

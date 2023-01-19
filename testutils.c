@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:14:02 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/12 11:20:31 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/19 15:52:05 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_a(int argc, t_stack *stack)
 	i = 0;
 	while (i < argc -1)
 	{
-		printf("a:	%i\n", stack->numbers[i]);
+		printf("%i\n", stack->nb[i]);
 		i++;
 	}
 }

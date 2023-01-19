@@ -1,27 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_set.c                                        :+:      :+:    :+:   */
+/*   moves_b.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 13:45:09 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/19 15:52:30 by cgross           ###   ########.fr       */
+/*   Created: 2023/01/19 17:56:11 by cgross            #+#    #+#             */
+/*   Updated: 2023/01/19 17:57:36 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.c"
+:
 
-void	stack_setsize(t_stack *stack, int size)
-{
-	if (!stack)
-		return ;
-	stack->size = size;
-}
-
-void	stack_setnumbers(t_stack *stack, int *numbers)
-{
-	if (!stack)
-		return ;
-	stack->nb= numbers;
-}

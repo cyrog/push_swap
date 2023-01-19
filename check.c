@@ -6,52 +6,39 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:20:53 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/18 17:01:22 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/19 11:45:02 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_args(int argc, char **argv)
+/*t_stack	*check_args(int argc, char **argv)
 {
-	char **arg;
-	int	i;
-	int	j;
+	t_stack *a;
+	char	**res;
+	int		i;
 
 	if (argc <= 1)
 	{
 		printf("not enough args");
-		return (1);
+		return (NULL);
 	}
-	arg = ft_split(argv[1], ' ');
-	i = 0;
-	j = 0;
-	if (argc == 2)
+	else
 	{
-		while (arg[i])
+		res = ft_split(argv[1], ' ');
+		while (res[i])
 		{
-			while (arg[i][j])
-			{
-				if (!(isdigit(arg[i][j])))
-				{
-					printf("error arg - 1");
-					return (1);
-				}
-				j++;
-			}
+			a[i] = atoi(res[i]);
 			i++;
 		}
 	}
-	else
-		printf("3");
-	return (0);
+	return (a);
 }
 
 
 
 
 
-	/*
 	else
 	{
 		j = 1;

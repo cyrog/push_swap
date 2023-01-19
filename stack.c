@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/14 13:51:31 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/19 17:53:19 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,20 @@ t_stack	*stack_create(int *numbers, int size)
 	stack_setnumbers(newstack, numbers);
 	return (newstack);
 }
+
+t_stack *stack_getmin(int argc, char **argv)
+{
+	t_stack *stack;
+	int		min;
+	int		i;
+
+	i = 0;
+	while (i < argc - 1)
+	{
+		if (stack->nb < min)
+			min = stack->nb[i];
+		i++;
+	}
+	return (stack->nb);
+}
+
