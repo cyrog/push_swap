@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/19 17:53:19 by cgross           ###   ########.fr       */
+/*   Updated: 2023/01/20 13:48:32 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,45 @@ t_stack	*stack_create(int *numbers, int size)
 	return (newstack);
 }
 
-t_stack *stack_getmin(int argc, char **argv)
+int	stack_getmin(t_stack *stack)
 {
-	t_stack *stack;
-	int		min;
-	int		i;
+	int	pos;
+	int	min;
+	int	i;
 
 	i = 0;
-	while (i < argc - 1)
+	min = stack->nb[0];
+	while (i < stack->size - 1)
 	{
-		if (stack->nb < min)
+		if (stack->nb[i] < min)
+		{
 			min = stack->nb[i];
+			pos = i;
+		}
 		i++;
 	}
-	return (stack->nb);
+
+	printf("nb:%d\n", stack->nb[i]);
+	printf("i:%d\n", i);
+	printf("size:%d\n", stack->size);
+	printf("min:%d\n", min);
+	printf("pos:%d\n", pos);
+	return (pos);
+}
+
+int	stack_getmax(int argc, char **argv, t_stack *stack)
+{
+
+	int		max;
+	int		i;
+	i = 0;
+	stack = stack_init(argc, argv);
+	while (i < argc - 1)
+	{
+		if (stack->nb[i] > max)
+			max = stack->nb[i];
+		i++;
+	}
+	return (i);
 }
 
