@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/20 17:30:50 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:16:44 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "libft/libft.h"
+#include "libft.h"
 
 typedef struct	s_stack
 {

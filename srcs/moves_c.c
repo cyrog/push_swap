@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:26:09 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/20 17:29:45 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/20 19:19:57 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	revrotate_both(t_stack *a, t_stack *b)
 	tmp = a->nb[a->size - 1];
 	while (i > 0)
 	{
-		a->nb[i] = a->size[i - 1];
+		a->nb[i] = a->nb[i - 1];
 		i--;
 	}
 	a->nb[i] = tmp;
@@ -71,7 +71,7 @@ void	revrotate_both(t_stack *a, t_stack *b)
 	tmp = b->nb[b->size - 1];
 	while (i > 0)
 	{
-		b->nb[i] = b->size[i - 1];
+		b->nb[i] = b->nb[i - 1];
 		i--;
 	}
 	b->nb[i] = tmp;
