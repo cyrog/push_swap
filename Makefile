@@ -93,6 +93,7 @@ $(NAME):	$(ODIR)	$(LOBJS) $(OBJS)
 clean:
 	$(RM) $(addprefix $(ODIR), $(LOBJS:$(LDIR)%=%))
 	$(RM) $(addprefix $(ODIR), $(LOBJS:$(LDIR)%=%))
+	if [ -d "$(ODIR)" ]; then rm -rf $(ODIR); fi
 
 fclean:	clean
 		$(RM) $(NAME)
