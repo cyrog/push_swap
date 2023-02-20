@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/20 13:48:32 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/20 16:43:07 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,59 @@ t_stack	*stack_create(int *numbers, int size)
 	return (newstack);
 }
 
-int	stack_getmin(t_stack *stack)
+t_stack	*b_create(int size)
+{
+	int	i;
+	int	*nbs;
+	t_stack	*newstack;
+
+	i = 0;
+	newstack = (t_stack *)malloc(sizeof(t_stack));
+	nbs = malloc(sizeof(int) * size + 1);
+	if (!nbs)
+		return (0);
+	if (!newstack)
+		return (0);
+	while (i < size)
+	{
+		nbs[i] = 0;
+		i++;
+	}
+	newstack = stack_create(nbs, size);
+	free(nbs);
+	return (newstack);
+}
+
+int	stack_getminpos(t_stack *stack)
 {
 	int	pos;
 	int	min;
 	int	i;
 
 	i = 0;
+	pos = i;
 	min = stack->nb[0];
-	while (i < stack->size - 1)
+	while (i < stack->size)
 	{
 		if (stack->nb[i] < min)
 		{
 			min = stack->nb[i];
 			pos = i;
 		}
-		i++;
+		else
+			i++;
 	}
 
-	printf("nb:%d\n", stack->nb[i]);
-	printf("i:%d\n", i);
-	printf("size:%d\n", stack->size);
-	printf("min:%d\n", min);
-	printf("pos:%d\n", pos);
+	//printf("nb:%d\n", stack->nb[i]);
+	//printf("i:%d\n", i);
+	//printf("size:%d\n", stack->size);
+//	printf("min:%d\n", min);
+//	printf("pos:%d\n", pos);
+
 	return (pos);
 }
 
-int	stack_getmax(int argc, char **argv, t_stack *stack)
+/*int	stack_getmax(t_stack *stack)
 {
 
 	int		max;
@@ -65,4 +91,4 @@ int	stack_getmax(int argc, char **argv, t_stack *stack)
 	}
 	return (i);
 }
-
+*/

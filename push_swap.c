@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:25:42 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/20 14:58:21 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/20 16:27:13 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,25 @@ int	main(int argc, char **argv)
 	if (argc < 1)
 		return (0);
 	a = stack_init(argc, argv);
-	b = stack_create(0, a->size);
+	b = b_create(argc - 1);
+	printf("size:	%d\n", a->size);
+	printf("min:	%d\n", stack_getminpos(a));
 	if (argc == 3)
 		a = sort2(a);
 	if (argc == 4)
 		a = sort3(a);
-	//if (argc == 5)
-	//	a = sort4(a, b);
+	if (argc == 5)
+		a = sort4(argc, a, b);
 	//swap_a(a);
 	//rotate_a(&stack);
 	//revrotate_a(&stack);
 	else
-		push_a(a, b);
-	print_a(argc, a);
+	{
+		push_b(argc, a, b);
+		push_a(argc, a, b);
+	}
+	print_stack(argc, a);
+	print_stack(argc, b);
 	return (0);
 }
 		

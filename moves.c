@@ -6,13 +6,13 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:17 by cgross            #+#    #+#             */
-/*   Updated: 2023/01/20 14:31:29 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:30:10 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(t_stack *stack)
+void	swap(t_stack *stack)
 {
 	int	tmp = 0;
 
@@ -24,10 +24,6 @@ void	swap_a(t_stack *stack)
 	stack->nb[1] = tmp;
 	printf("sa\n");
 }
-
-//int	*swap_b(t_stack *stack)			/sb
-
-//int	*swap_both			/ss
 
 void	rotate_a(t_stack *stack)
 {
@@ -58,5 +54,5 @@ void	revrotate_a(t_stack *stack)
 		i--;
 	}
 	stack->nb[i] = tmp;
-	printf("rra\n");
+	write(1, "rra\n", 4);
 }
