@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/20 19:16:44 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:30:11 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,21 @@ t_stack	*b_create(int size);
 void	stack_setsize(t_stack *stack, int size);
 void	stack_setnumbers(t_stack *stack, int *numbers);
 
+int		is_sorted(t_stack *a);
+t_stack	*normalize(t_stack *a);
+
 t_stack	*sort2(t_stack *a);
 t_stack	*sort3(t_stack *a);
-t_stack	*sort4(int argc, t_stack *a, t_stack *b);
+t_stack	*sort4(t_stack *a, t_stack *b);
+t_stack	*sort5(t_stack *a, t_stack *b);
+
+t_stack	*sort_all(t_stack *a, t_stack *b);
 
 int		stack_getminpos(t_stack *stack);
 int		stack_getmax(int argc, char **argv, t_stack *stack);
 
-int		push_a(int argc, t_stack *a, t_stack *b);;
-int		push_b(int argc, t_stack *a, t_stack *b);;
+void	push_a(t_stack *a, t_stack *b);;
+void	push_b(t_stack *a, t_stack *b);;
 void	swap(t_stack *stack);
 
 void	swap_both(t_stack *a, t_stack *b);

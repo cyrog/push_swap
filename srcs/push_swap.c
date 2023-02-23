@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:25:42 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/20 20:05:19 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/23 13:41:32 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack *stack_init(int argc, char **argv)
 	int		i = 0;
 	int		j = 1;
 	int		*nbs;
-	char 	**res;
+	//char 	**res;
 	t_stack	*stack;
 
 
@@ -30,8 +30,9 @@ t_stack *stack_init(int argc, char **argv)
 	{
 		printf("need parse with 2 args\n");
 		printf("why arg needs a space????????\n");
-		res = ft_split(argv[1], ' ');
-		printf("%s", res[0]);
+		//res = ft_split(argv[1], ' ');
+		//printf("%s", res[0]);
+		printf("test");
 	}
 	else
 	{
@@ -57,25 +58,45 @@ int	main(int argc, char **argv)
 	if (argc < 1)
 		return (0);
 	a = stack_init(argc, argv);
+	a = normalize(a);
+	if (is_sorted(a) == 0)
+	{
+		print_stack(argc, a);
+		return (0);
+	}
 	b = b_create(argc - 1);
 	printf("size:	%d\n", a->size);
 	printf("min:	%d\n", stack_getminpos(a));
+	//print_stack(argc, a);
 	if (argc == 3)
 		a = sort2(a);
-	if (argc == 4)
+	else if (argc == 4)
 		a = sort3(a);
-	if (argc == 5)
-		a = sort4(argc, a, b);
+	else if (argc == 5)
+		a = sort4(a, b);
+	else if (argc == 6)
+		a = sort5(a, b);
+	//else
+	//	a = sort_all(a, b);
 	//swap_a(a);
 	//rotate_a(&stack);
 	//revrotate_a(&stack);
-	else
-	{
-		push_b(argc, a, b);
-		push_a(argc, a, b);
-	}
-	print_stack(argc, a);
-	print_stack(argc, b);
+	print_stack(a->size, a);
+	printf("b:	\n");
+	print_stack(a->size,  b);
 	return (0);
 }
-		
+/*
+// test	normalize numbers
+//
+//
+int	main(int argc, char **argv)
+{
+	t_stack	*a;
+	a = stack_init(argc, argv);
+	print_stack(argc, a);
+	printf("normalized:\n");
+	a = normalize(a);
+	print_stack(argc, a);
+}
+*/

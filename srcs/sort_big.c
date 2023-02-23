@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testutils.c                                        :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   by: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:14:02 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 13:26:34 by cgross           ###   ########.fr       */
+/*   Created: 2023/02/22 16:50:43 by cgross            #+#    #+#             */
+/*   Updated: 2023/02/23 11:32:29 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "push_swap.h"
 
-void	print_stack(int size, t_stack *stack)
+t_stack	*sort_all(t_stack *a, t_stack *b)
 {
-	int	i;
+	t_stack	*new;
 
-	i = 0;
-	while (i < stack->size)
-	{
-		printf("%i\n", stack->nb[i]);
-		i++;
-	}
+	new = normalize(a);
+	return (new);
 }
+
+/*int	main(void)
+{
+	int a;
+	int	b;
+
+	a = 8;
+	b = b>>1;
+	printf("%d", 12&23);
+	return (b);
+}*/

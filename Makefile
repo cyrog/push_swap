@@ -15,7 +15,9 @@ SDIR	=	./srcs/
 # SOURCES
 
 SRC		=	push_swap.c		\
-			sort.c			\
+			sort_small.c	\
+			sort_big.c		\
+			sort_utils.c	\
 			moves.c			\
 			moves_b.c		\
 			moves_c.c		\
@@ -88,11 +90,11 @@ LNAME	=	libft
 all:		$(NAME)
 
 $(NAME):	$(ODIR)	$(LOBJS) $(OBJS)
-	$(CC) $(IFLAGS) $(OBJS) $(LOBJS) -o $(NAME)
+	@$(CC) $(IFLAGS) $(OBJS) $(LOBJS) -o $(NAME)
 
 clean:
-	$(RM) $(addprefix $(ODIR), $(LOBJS:$(LDIR)%=%))
-	$(RM) $(addprefix $(ODIR), $(LOBJS:$(LDIR)%=%))
+	@$(RM) $(addprefix $(ODIR), $(LOBJS:$(LDIR)%=%))
+	@$(RM) $(addprefix $(ODIR), $(LOBJS:$(LDIR)%=%))
 	if [ -d "$(ODIR)" ]; then rm -rf $(ODIR); fi
 
 fclean:	clean
