@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 12:30:11 by cgross           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:16:00 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ void	revrotate_both(t_stack *a, t_stack *b);
 void	rotate_a(t_stack *stack);
 void	revrotate_a(t_stack *stack);
 void	print_stack(int argc, t_stack *stack);
+
+int		error(void);
+int		check(int argc, char **argv);
 
 t_stack	*check_args(int argc, char **argv);
 
