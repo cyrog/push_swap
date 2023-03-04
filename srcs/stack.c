@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 13:21:46 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/04 11:41:17 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,29 +66,57 @@ int	stack_getminpos(t_stack *stack)
 		else
 			i++;
 	}
-
-	//printf("nb:%d\n", stack->nb[i]);
-	//printf("i:%d\n", i);
-	//printf("size:%d\n", stack->size);
-//	printf("min:%d\n", min);
-//	printf("pos:%d\n", pos);
-
 	return (pos);
 }
 
-/*int	stack_getmax(t_stack *stack)
+t_stack *stack_init2(int argc, char **argv)
 {
+	int		j = 0;
+	int		i = 0;
+	int		*nbs;
+	char 	**res;
+	t_stack	*stack;
 
-	int		max;
-	int		i;
-	i = 0;
-	stack = stack_init(argc, argv);
-	while (i < argc - 1)
+
+	while (argv[stack->size])
+		stack->size++;
+	printf("size: %d", stack->size);
+	nbs = (int*)malloc(sizeof(int) * stack->size + 1);
+	if (!nbs)
+		return (0);
+	while (argv[j])
 	{
-		if (stack->nb[i] > max)
-			max = stack->nb[i];
+		nbs[i] = atoi(argv[j]);
+		j++;
 		i++;
 	}
-	return (i);
+	stack = stack_create(nbs, j);
+	return (stack);
 }
-*/
+
+t_stack	*stack_init1(int argc, char **argv)
+{
+	int		i;
+	int		j = 1;
+	int		*nbs;
+	char 	**res;
+	t_stack	*stack;
+
+
+	nbs = malloc(sizeof(int*) * argc);
+	if (!nbs)
+		return (0);
+	else
+	{
+		i = 0;
+		while (argv[j])
+		{
+			nbs[i] = atoi(argv[j]);
+			j++;
+			i++;
+		}
+	}
+	stack = stack_create(nbs, argc - 1);
+	return (stack);
+}
+

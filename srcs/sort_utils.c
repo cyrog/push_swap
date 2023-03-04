@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:03:26 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 11:49:01 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/04 11:48:17 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ t_stack	*normalize(t_stack *a)
 	int	pos;
 	int	count;
 	int	*nbs;
-	t_stack	*new;
 
 	i = 0;
 	pos = 0;
 	count = 0;
-	nbs = malloc(sizeof(int*) * a->size);
+
+	nbs = (int*)malloc(sizeof(int) * a->size + 1);
 	while (pos < a->size)
 	{
 		while (i < a->size)
@@ -52,8 +52,8 @@ t_stack	*normalize(t_stack *a)
 		count = 0;
 		i = 0;
 	}
-	new = stack_create(nbs, a->size);
-	return (new);
+	a = stack_create(nbs, a->size);
+	return (a);
 }
 
 /*int	main(int argc, char **argv)

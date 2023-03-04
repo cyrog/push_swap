@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 09:25:42 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 16:24:46 by cgross           ###   ########.fr       */
+/*   Created: 2023/03/02 16:55:00 by cgross            #+#    #+#             */
+/*   Updated: 2023/03/04 11:40:06 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,47 @@
 
 t_stack *stack_init(int argc, char **argv)
 {
-	int		i = 0;
+	int		size;
+	int		i = 1;
 	int		j = 1;
 	int		*nbs;
-	char 	**res;
 	t_stack	*stack;
 
-
-	nbs = malloc(sizeof(int) * argc - 1);
-	if (!nbs)
-		return (0);
-	if (argc < 1)
-		return (0);
+	size = 0;
 	if (argc == 2)
 	{
-		printf("need parse with 2 args\n");
-		printf("why arg needs a space????????\n");
-		res = ft_split(argv[1], ' ');
-		printf("string:%s\n", res[0]);
-		//printf("test\n");
-	}
-	else
-	{
+		j = 0;
 		i = 0;
-		while (argv[j])
-		{
-			nbs[i] = atoi(argv[j]);
-			j++;
-			i++;
-		}
 	}
-	stack = stack_create(nbs, argc - 1);
+	while (argv[j])
+		j++;
+	nbs = (int*)malloc(sizeof(int) * j);
+	if (!nbs)
+		return (0);
+	while (argv[i])
+	{
+		nbs[size] = atoi(argv[i]);
+		i++;
+		size++;
+	}
+	stack = stack_create(nbs, size);
 	return (stack);
 }
 
 t_stack	*sort(int argc, t_stack *a, t_stack *b)
 {
-	if (argc == 2)
-	{
-	}
-	else if (argc == 3)
+	if (is_sorted(a) == 0)
+		return (a);
+	else if (a->size == 2)
 		a = sort2(a);
-	else if (argc == 4)
+	else if (a->size == 3)
 		a = sort3(a);
-	else if (argc == 5)
+	else if (a->size == 4)
 		a = sort4(a, b);
-	else if (argc == 6)
+	else if (a->size == 5)
 		a = sort5(a, b);
 	else
-		a = sort_all(a, b);
+		a = sort_all(a, b);	//problem with argc == 2, a->size ???
 	return (a);
 }
 
@@ -71,44 +63,21 @@ int	main(int argc, char **argv)
 	t_stack *a;
 	t_stack *b;
 
-	/*if (check(argc, argv) != 0)
+	if (argc == 1 || argv[1] == NULL)
+		return (0);
+	if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	if (check_error(argc, argv) == 0 || check_doubles(argc, argv) == 0)
 	{
 		error();
 		return (-1);
 	}
-	*/
-	check(argc, argv);
-	return (0);
 	a = stack_init(argc, argv);
 	a = normalize(a);
-	if (is_sorted(a) == 0)
-	{
-		print_stack(argc, a);
-		return (0);
-	}
-	b = b_create(argc - 1);
+	b = b_create(a->size);
 	sort(argc, a, b);
-	printf("a:	\n");
-	print_stack(a->size, a);
-	printf("b:	\n");
-	print_stack(a->size,  b);
+	print_stack(a->size,  a);
 	free(a);
 	free(b);
 	return (0);
 }
-/*
-// test	normalize numbers
-//
-//
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	a = stack_init(argc, argv);
-	print_stack(argc, a);
-	printf("normalized:\n");
-	a = normalize(a);
-	print_stack(argc, a);
-}
-*/
-//errors check
-//int	main(int argc, char **argv)

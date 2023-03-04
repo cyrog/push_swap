@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 16:16:00 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/03 10:28:49 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct	s_stack
 }				t_stack;
 
 t_stack	*stack_init(int argc, char **argv);
+t_stack	*stack_init1(int argc, char **argv);
+t_stack	*stack_init2(int argc, char **argv);
 t_stack	*stack_create(int *numbers, int size);
 t_stack	*b_create(int size);
 void	stack_setsize(t_stack *stack, int size);
@@ -57,7 +59,13 @@ void	revrotate_a(t_stack *stack);
 void	print_stack(int argc, t_stack *stack);
 
 int		error(void);
-int		check(int argc, char **argv);
+int		check_int(char *str);
+int		check_sign(char *str);
+int		check_doubles(int argc, char **argv);
+int		check_error(int argc, char **argv);
+
+long	ft_atol(const char *str);
+void	free_argv(char **argv);
 
 t_stack	*check_args(int argc, char **argv);
 

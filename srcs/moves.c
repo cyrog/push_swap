@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:17 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/20 17:30:10 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/02 13:01:21 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,10 @@ void	swap(t_stack *stack)
 {
 	int	tmp = 0;
 
-	//if (!(stack->nb[0]|| stack->nb[1])) //consider a zero needs fix
-	//	return (stack->nb);
-	
 	tmp = stack->nb[0];
 	stack->nb[0] = stack->nb[1];
 	stack->nb[1] = tmp;
-	printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 void	rotate_a(t_stack *stack)

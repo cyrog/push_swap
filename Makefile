@@ -26,6 +26,7 @@ SRC		=	push_swap.c		\
 			check.c			\
 			testutils.c		\
 			error.c			\
+			utils.c			\
 
 LSRC	=	ft_isalpha.c \
 				ft_isdigit.c \
