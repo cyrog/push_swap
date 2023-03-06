@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 17:26:09 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/20 19:19:57 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:35:38 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 void	swap_both(t_stack *a, t_stack *b)
 {
-
-	//if (!(stack->nb[0]|| stack->nb[1])) //consider a zero needs fix
-	//	return (stack->nb);
-
 	int	tmp1;
 	int	tmp2;
 

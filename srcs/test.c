@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/06 16:50:18 by cgross            #+#    #+#             */
+/*   Updated: 2023/03/06 16:50:20 by cgross           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	error(void)
 {
 	write(2, "Error\n", 6);
@@ -76,29 +88,5 @@ int	check_doubles(int argc, char **argv)
 		}
 		j++;
 	}
-	return (0);
-}
-
-int	main(int argc, char **argv)
-{
-	t_stack *a;
-	t_stack *b;
-
-	if (argc < 2 || argv[1] == NULL)
-		return (0);
-	if (check_error(argc, argv) == 0 || check_doubles(argc, argv) == 0)
-	{
-		error();
-		return (-1);
-	}
-	if (argc == 2)
-		ft_split(argv[1], ' ');
-	a = stack_init(argc, argv);
-	a = normalize(a);
-	b = b_create(argc - 1);
-	sort(argc, a, b);
-	print_stack(a->size,  a);
-	free(a);
-	free(b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:06:45 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 16:23:11 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:53:20 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack	*sort3(t_stack *a)
 	if (a->nb[0] <= a->nb[1] && a->nb[1] <= a->nb[2])
 		return (a);
 	else if (a->nb[0] > a->nb[1] && a->nb[1] < a->nb[2] && a->nb[0] > a->nb[2])
-	   rotate_a(a);	
+		rotate_a(a);
 	else if (a->nb[0] < a->nb[1] && a->nb[1] > a->nb[2] && a->nb[0] < a->nb[2])
 	{
 		revrotate_a(a);
@@ -44,7 +44,7 @@ t_stack	*sort3(t_stack *a)
 	return (a);
 }
 
-t_stack *sort4(t_stack *a, t_stack *b)
+t_stack	*sort4(t_stack *a, t_stack *b)
 {
 	int	pos;
 

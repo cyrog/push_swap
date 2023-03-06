@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:44:34 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 13:15:05 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:34:08 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_sign(char *str)
 		return (1);
 	return (0);
 }
-		
+
 int	check_error(int argc, char **argv)
 {
 	int	i;

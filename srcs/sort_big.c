@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   by: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 16:50:43 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/04 11:22:59 by cgross           ###   ########.fr       */
+/*   Created: 2023/03/06 16:51:59 by cgross            #+#    #+#             */
+/*   Updated: 2023/03/06 16:52:13 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ t_stack	*sort_all(t_stack *a, t_stack *b)
 	size = 0;
 	while (a->nb[size])
 		size++;
-	printf("size:%d", size);
-	printf("a->nb[0] = %d\n", a->nb[0]);
 	while (is_sorted(a) != 0)
 	{
 		i = 0;

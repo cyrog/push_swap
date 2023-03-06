@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 15:41:49 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:51:25 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ t_stack	*stack_create(int *numbers, int size)
 
 t_stack	*b_create(int size)
 {
-	int	i;
-	int	*nbs;
+	int		i;
+	int		*nbs;
 	t_stack	*newstack;
 
 	i = 0;
-	nbs = (int*)malloc(sizeof(int) * size);
+	nbs = (int *)malloc(sizeof(int) * size);
 	if (!nbs)
 		return (0);
 	if (!newstack)

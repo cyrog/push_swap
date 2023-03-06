@@ -6,21 +6,23 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:55:00 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 16:24:01 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:39:24 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *stack_init(int argc, char **argv)
+t_stack	*stack_init(int argc, char **argv)
 {
 	int		size;
-	int		i = 1;
-	int		j = 1;
-	int	*nbs;
+	int		i;
+	int		j;
+	int		*nbs;
 	t_stack	*stack;
 
 	size = 0;
+	i = 1;
+	j = 1;
 	if (argc == 2)
 	{
 		j = 0;
@@ -28,7 +30,7 @@ t_stack *stack_init(int argc, char **argv)
 	}
 	while (argv[j])
 		j++;
-	nbs = (int*)malloc(sizeof(int) * j);
+	nbs = (int *)malloc(sizeof(int) * j);
 	if (!nbs)
 		return (0);
 	while (argv[i])

@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:03:26 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 14:51:13 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:51:14 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ int	normalize1(int argc, char **argv, char *str, int size)
 		if (ft_atoi(argv[i]) > ft_atoi(str))
 			bigger++;
 		i++;
-		//printf("argv[i]%s\n", argv[i]);
-		//printf("i:	%d\n", i);
-	//	printf("bigger:	%d\n", bigger);
-		//printf("size:	%d\n", size);
 	}
 	nb = size - bigger;
 	return (nb);
@@ -63,8 +59,7 @@ t_stack	*normalize(t_stack *a)
 	i = 0;
 	pos = 0;
 	count = 0;
-
-	nbs = (int*)malloc(sizeof(int) * a->size + 1);
+	nbs = (int *)malloc(sizeof(int) * a->size + 1);
 	while (pos < a->size)
 	{
 		while (i < a->size)
