@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:03:26 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/04 11:48:17 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 14:51:13 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,32 @@ int	is_sorted(t_stack *a)
 			return (1);
 	}
 	return (0);
+}
+
+int	normalize1(int argc, char **argv, char *str, int size)
+{
+	int	i;
+	int	bigger;
+	int	nb;
+
+	i = 1;
+	bigger = 0;
+	if (argc == 2)
+		i = 0;
+	else
+		size = size -1;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) > ft_atoi(str))
+			bigger++;
+		i++;
+		//printf("argv[i]%s\n", argv[i]);
+		//printf("i:	%d\n", i);
+	//	printf("bigger:	%d\n", bigger);
+		//printf("size:	%d\n", size);
+	}
+	nb = size - bigger;
+	return (nb);
 }
 
 t_stack	*normalize(t_stack *a)

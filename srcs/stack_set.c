@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 13:45:09 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/22 16:42:57 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 12:58:34 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	stack_setnumbers(t_stack *stack, int *numbers)
 {
 	if (!stack)
 		return ;
-	stack->nb= numbers;
+	stack->nb = numbers;
 }

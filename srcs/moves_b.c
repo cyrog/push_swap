@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:56:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/02/23 13:39:50 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 15:43:07 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	push_b(t_stack *a, t_stack *b)
 		return ;
 	i = 0;
 	tmp2 = a->nb[0];
-	while (i <= a->size)
+	while (i < a->size)
 	{
 		tmp1 = b->nb[i];
 		b->nb[i] = tmp2;
@@ -58,7 +58,7 @@ void	push_b(t_stack *a, t_stack *b)
 		i++;
 	}
 	i = 0;
-	while (i <= a->size)
+	while (i < a->size)
 	{
 		a->nb[i] = a->nb[i + 1];
 		i++;

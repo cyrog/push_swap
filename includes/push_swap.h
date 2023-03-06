@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/03 10:28:49 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 15:59:50 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	stack_setsize(t_stack *stack, int size);
 void	stack_setnumbers(t_stack *stack, int *numbers);
 
 int		is_sorted(t_stack *a);
+int	normalize1(int argc, char **argv, char *str, int size);
 t_stack	*normalize(t_stack *a);
 
 t_stack	*sort2(t_stack *a);
@@ -66,6 +67,7 @@ int		check_error(int argc, char **argv);
 
 long	ft_atol(const char *str);
 void	free_argv(char **argv);
+void	free_all(int argc, char **argv, t_stack *a, t_stack *b);
 
 t_stack	*check_args(int argc, char **argv);
 

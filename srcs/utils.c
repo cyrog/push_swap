@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:41:26 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/03 09:44:56 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 15:59:15 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,15 @@ void	free_argv(char **argv)
 		free(argv[i]);
 		i++;
 	}
+	free(argv[i]);
 	free(argv);
+}
+
+void	free_all(int argc, char **argv, t_stack *a, t_stack *b)
+{
+	if (argc == 2)
+		free_argv(argv);
+	free(a->nb);
+	free(a);
+	free(b);
 }

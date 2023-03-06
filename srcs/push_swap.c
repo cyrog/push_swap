@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:55:00 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/04 11:40:06 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:24:01 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack *stack_init(int argc, char **argv)
 	int		size;
 	int		i = 1;
 	int		j = 1;
-	int		*nbs;
+	int	*nbs;
 	t_stack	*stack;
 
 	size = 0;
@@ -33,7 +33,7 @@ t_stack *stack_init(int argc, char **argv)
 		return (0);
 	while (argv[i])
 	{
-		nbs[size] = atoi(argv[i]);
+		nbs[size] = normalize1(argc, argv, argv[i], j);
 		i++;
 		size++;
 	}
@@ -54,7 +54,7 @@ t_stack	*sort(int argc, t_stack *a, t_stack *b)
 	else if (a->size == 5)
 		a = sort5(a, b);
 	else
-		a = sort_all(a, b);	//problem with argc == 2, a->size ???
+		a = sort_all(a, b);
 	return (a);
 }
 
@@ -66,18 +66,26 @@ int	main(int argc, char **argv)
 	if (argc == 1 || argv[1] == NULL)
 		return (0);
 	if (argc == 2)
+	{
 		argv = ft_split(argv[1], ' ');
+		if (argv[0] == NULL)
+		{
+			free_argv(argv);
+			return (0);
+		}
+	}
 	if (check_error(argc, argv) == 0 || check_doubles(argc, argv) == 0)
 	{
 		error();
+		if (argc == 2)
+			free_argv(argv);
 		return (-1);
 	}
 	a = stack_init(argc, argv);
-	a = normalize(a);
 	b = b_create(a->size);
-	sort(argc, a, b);
-	print_stack(a->size,  a);
-	free(a);
-	free(b);
+//	print_stack(a->size,  a);
+	a = sort(argc, a, b);
+//	print_stack(a->size,  a);
+	free_all(argc, argv, a, b);
 	return (0);
 }
