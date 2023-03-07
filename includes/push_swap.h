@@ -6,24 +6,32 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 15:59:50 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:53:47 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include "libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <ctype.h>
+# include "libft.h"
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int	*nb;
 	int	size;
 }				t_stack;
+
+typedef struct s_init
+{
+	int	i;
+	int	j;
+	int	size;
+	int	*nbs;
+}				t_init;
 
 t_stack	*stack_init(int argc, char **argv);
 t_stack	*stack_init1(int argc, char **argv);
@@ -34,8 +42,7 @@ void	stack_setsize(t_stack *stack, int size);
 void	stack_setnumbers(t_stack *stack, int *numbers);
 
 int		is_sorted(t_stack *a);
-int	normalize1(int argc, char **argv, char *str, int size);
-t_stack	*normalize(t_stack *a);
+int		normalize(int argc, char **argv, char *str, int size);
 
 t_stack	*sort2(t_stack *a);
 t_stack	*sort3(t_stack *a);
@@ -59,7 +66,7 @@ void	rotate_a(t_stack *stack);
 void	revrotate_a(t_stack *stack);
 void	print_stack(int argc, t_stack *stack);
 
-int		error(void);
+int		error(int argc, char **argv);
 int		check_int(char *str);
 int		check_sign(char *str);
 int		check_doubles(int argc, char **argv);
@@ -70,6 +77,5 @@ void	free_argv(char **argv);
 void	free_all(int argc, char **argv, t_stack *a, t_stack *b);
 
 t_stack	*check_args(int argc, char **argv);
-
 
 #endif

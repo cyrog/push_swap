@@ -23,7 +23,6 @@ SRC		=	push_swap.c		\
 			moves_c.c		\
 			stack.c			\
 			stack_set.c		\
-			check.c			\
 			testutils.c		\
 			error.c			\
 			utils.c			\

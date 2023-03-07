@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:55:00 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/06 16:39:24 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/07 19:07:49 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,29 @@
 
 t_stack	*stack_init(int argc, char **argv)
 {
-	int		size;
-	int		i;
-	int		j;
-	int		*nbs;
+	t_init	init;
 	t_stack	*stack;
 
-	size = 0;
-	i = 1;
-	j = 1;
+	init.size = 0;
+	init.i = 1;
+	init.j = 1;
 	if (argc == 2)
 	{
-		j = 0;
-		i = 0;
+		init.j = 0;
+		init.i = 0;
 	}
-	while (argv[j])
-		j++;
-	nbs = (int *)malloc(sizeof(int) * j);
-	if (!nbs)
+	while (argv[init.j])
+		init.j++;
+	init.nbs = (int *)malloc(sizeof(int) * init.j);
+	if (!init.nbs)
 		return (0);
-	while (argv[i])
+	while (argv[init.i])
 	{
-		nbs[size] = normalize1(argc, argv, argv[i], j);
-		i++;
-		size++;
+		init.nbs[init.size] = normalize(argc, argv, argv[init.i], init.j);
+		init.i++;
+		init.size++;
 	}
-	stack = stack_create(nbs, size);
+	stack = stack_create(init.nbs, init.size);
 	return (stack);
 }
 
@@ -62,8 +59,8 @@ t_stack	*sort(int argc, t_stack *a, t_stack *b)
 
 int	main(int argc, char **argv)
 {
-	t_stack *a;
-	t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc == 1 || argv[1] == NULL)
 		return (0);
@@ -78,16 +75,12 @@ int	main(int argc, char **argv)
 	}
 	if (check_error(argc, argv) == 0 || check_doubles(argc, argv) == 0)
 	{
-		error();
-		if (argc == 2)
-			free_argv(argv);
+		error(argc, argv);
 		return (-1);
 	}
 	a = stack_init(argc, argv);
 	b = b_create(a->size);
-//	print_stack(a->size,  a);
 	a = sort(argc, a, b);
-//	print_stack(a->size,  a);
 	free_all(argc, argv, a, b);
 	return (0);
 }
