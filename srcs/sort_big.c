@@ -6,13 +6,13 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 16:51:59 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/07 19:07:38 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:05:34 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*sort_all(t_stack *a, t_stack *b)
+void	sort_all(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	bit;
@@ -21,24 +21,23 @@ t_stack	*sort_all(t_stack *a, t_stack *b)
 	i = 0;
 	bit = 0;
 	size = 0;
-	while (a->nb[size])
+	while (size < a->size)
 		size++;
 	while (is_sorted(a) != 0)
 	{
 		i = 0;
 		while (i < size && is_sorted(a) != 0)
 		{
+			i++;
 			if (((a->nb[0] >> bit) & 1) == 0)
 				push_b(a, b);
 			else
 				rotate_a(a);
-			i++;
 		}
 		while (b->nb[0])
 			push_a(a, b);
 		bit++;
 	}
-	return (a);
 }
 
 //test bit operators

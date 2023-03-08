@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:44:34 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/07 18:48:00 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:42:16 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	error(int argc, char **argv)
 {
 	write(2, "Error\n", 6);
-	if (argc == 2)
-		free_argv(argv);
 	return (0);
 }
 
@@ -25,7 +23,7 @@ int	check_int(char *str)
 	long	nb;
 
 	nb = ft_atol(str);
-	if (nb > 2147483647 || nb < -2147483648)
+	if (nb <= 2147483647 && nb >= -2147483648)
 		return (0);
 	return (1);
 }
@@ -51,6 +49,8 @@ int	check_error(int argc, char **argv)
 	while (argv[i])
 	{
 		j = 0;
+		if (check_int(argv[i]) == 1)
+			return (0);
 		if (check_sign(argv[i]) == 1)
 			j++;
 		if (argv[i][j] == '\0')
@@ -61,8 +61,6 @@ int	check_error(int argc, char **argv)
 				return (0);
 			j++;
 		}
-		if (check_int(argv[i]) == 0)
-			return (0);
 		i++;
 	}
 	return (1);

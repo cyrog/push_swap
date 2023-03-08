@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 12:03:26 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/07 19:06:00 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:48:08 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_stack *a)
 	i = a->size - 1;
 	while (i > 0)
 	{
-		if (a->nb[i] >= a->nb[i - 1])
+		if (a->nb[i] > a->nb[i - 1])
 			i--;
 		else
 			return (1);

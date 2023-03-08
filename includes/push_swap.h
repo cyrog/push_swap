@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:21:46 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/07 18:53:47 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/08 12:32:07 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ typedef struct s_init
 }				t_init;
 
 t_stack	*stack_init(int argc, char **argv);
-t_stack	*stack_init1(int argc, char **argv);
-t_stack	*stack_init2(int argc, char **argv);
 t_stack	*stack_create(int *numbers, int size);
 t_stack	*b_create(int size);
 void	stack_setsize(t_stack *stack, int size);
@@ -44,12 +42,12 @@ void	stack_setnumbers(t_stack *stack, int *numbers);
 int		is_sorted(t_stack *a);
 int		normalize(int argc, char **argv, char *str, int size);
 
-t_stack	*sort2(t_stack *a);
-t_stack	*sort3(t_stack *a);
-t_stack	*sort4(t_stack *a, t_stack *b);
-t_stack	*sort5(t_stack *a, t_stack *b);
+void	sort2(t_stack *a);
+void	sort3(t_stack *a);
+void	sort4(t_stack *a, t_stack *b);
+void	sort5(t_stack *a, t_stack *b);
 
-t_stack	*sort_all(t_stack *a, t_stack *b);
+void	sort_all(t_stack *a, t_stack *b);
 
 int		stack_getminpos(t_stack *stack);
 int		stack_getmax(int argc, char **argv, t_stack *stack);
