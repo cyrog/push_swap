@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 09:24:11 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/08 16:04:25 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/10 17:28:02 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	stack_getminpos(t_stack *stack)
 	min = stack->nb[0];
 	while (i < stack->size)
 	{
-		if (stack->nb[i] < min)
+		if (stack->nb[i] < min && stack->nb[i] != 0)
 		{
 			min = stack->nb[i];
 			pos = i;

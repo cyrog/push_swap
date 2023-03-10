@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:06:45 by cgross            #+#    #+#             */
-/*   Updated: 2023/03/08 13:34:49 by cgross           ###   ########.fr       */
+/*   Updated: 2023/03/10 17:47:21 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	sort5(t_stack *a, t_stack *b)
 	else if (pos1 == 4)
 		revrotate_a(a);
 	push_b(a, b);
+	a->size = a->size - 1;
 	sort4(a, b);
 	push_a(a, b);
+	a->size = a->size + 1;
 }
